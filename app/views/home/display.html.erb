@@ -1,0 +1,29 @@
+<%if @name %>
+<h1>Hi @name</h1>
+<%end%>
+<a href="/addtask">ADD NEW TASK</a>
+
+<ol>
+<% @tasks.each do |curtask| %>
+<li>
+<%=curtask.content %> , 
+<form action='/completed' method='GET'>
+	<input type="hidden" name="curtask_id" value="<%=curtask.id%>">
+	<%if curtask.completed%><input type="submit"  value="not complete">
+
+	<%else%>
+	<input type="submit" value="complete" >
+	<%end%>
+</form>
+</li> 
+<%end%>
+</ol>
+<br><br>
+existing user?<a href="/login">LOGIN</a>
+<br><br>
+New User?<a href="/signup">signup</a>
+
+
+
+
+
